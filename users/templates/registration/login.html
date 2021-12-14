@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+</head>
+<body>
+    {% extends "users/base.html" %}
+    {% block content %}
+
+    {% if form.errors %}
+    <p>Invalid Credentials</p>
+    {% endif %}
+    <div class="container-fluid">
+        <form action="{% url 'users:login' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button name="submit">Log in</button>
+            <input type="hidden" name="next" value="{% url 'index' %}">
+        </form>
+    </div>
+
+    {% endblock content %}
+</body>
+</html>

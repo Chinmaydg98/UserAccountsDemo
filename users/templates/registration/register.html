@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+</head>
+<body>
+    {% extends "users/base.html" %}
+    {% block content %}
+
+        {% if form.errors %}
+        <p>Error, please check for validation below</p>
+        {% endif %}
+        <form action="{% url 'users:register' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button name="submit">Register</button>
+            <input type="hidden" name="next" value="{% url 'index' %}">
+        </form>
+
+    {% endblock content %}
+</body>
+</html>

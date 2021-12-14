@@ -19,6 +19,8 @@
             <input type="hidden" name="next" value="{% url 'index' %}">
         </form>
     </div>
+    <br>
+    <h5>New user? Click <a href="{% url 'users:register' %}">here</a> to register</h5>
 
     {% endblock content %}
 </body>
